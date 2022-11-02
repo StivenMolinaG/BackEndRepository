@@ -1,0 +1,50 @@
+2022-11-02 09:57:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#1" no está fijado
+Parameter "#1" is not set; SQL statement:
+INSERT INTO medicamentos(nombre, laboratorio, cantidad, precio)VALUES (?, ?, ?, ?) [90012-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:207)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:159)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at main.dao.impl.IDaoMedicamentoImpl.guardar(IDaoMedicamentoImpl.java:36)
+	at main.service.MedicamentoService.guardar(MedicamentoService.java:17)
+	at Main.main(Main.java:12)
+2022-11-02 09:57:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#1" no está fijado
+Parameter "#1" is not set; SQL statement:
+INSERT INTO medicamentos(nombre, laboratorio, cantidad, precio)VALUES (?, ?, ?, ?) [90012-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:75)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:207)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:159)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at main.dao.impl.IDaoMedicamentoImpl.guardar(IDaoMedicamentoImpl.java:36)
+	at main.service.MedicamentoService.guardar(MedicamentoService.java:17)
+	at Main.main(Main.java:12)
+2022-11-02 09:58:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO medicamentos(nombre, laboratorio, cantidad, precio)VALUES (Medicamento [*]id=null, nombre='analgesico', laboratorio='Pfizer', cantidad='30', precio=3.0 )"; se esperaba "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"
+Syntax error in SQL statement "INSERT INTO medicamentos(nombre, laboratorio, cantidad, precio)VALUES (Medicamento [*]id=null, nombre='analgesico', laboratorio='Pfizer', cantidad='30', precio=3.0 )"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, NOT, IS, ILIKE, REGEXP, AND, OR, ,, )"; SQL statement:
+INSERT INTO medicamentos(nombre, laboratorio, cantidad, precio)VALUES (Medicamento id=null, nombre='analgesico', laboratorio='Pfizer', cantidad='30', precio=3.0 ) [42001-214]
+2022-11-02 10:08:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor Invalido "5" para el parametro "parameterIndex"
+Invalid value "5" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setDouble(JdbcPreparedStatement.java:716)
+	at main.dao.impl.IDaoMedicamentoImpl.guardar(IDaoMedicamentoImpl.java:38)
+	at main.service.MedicamentoService.guardar(MedicamentoService.java:17)
+	at Main.main(Main.java:12)
