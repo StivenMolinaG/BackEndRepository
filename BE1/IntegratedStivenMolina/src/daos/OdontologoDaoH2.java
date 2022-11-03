@@ -24,9 +24,11 @@ public class OdontologoDaoH2 implements IDao<Odontologo>{
 
             preparedStatement.executeUpdate();
             conn.commit();
+            conn.close();
         } catch (SQLException e) {
             try {
                 conn.rollback();
+                conn.close();
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }

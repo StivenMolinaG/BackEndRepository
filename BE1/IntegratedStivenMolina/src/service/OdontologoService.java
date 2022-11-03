@@ -3,6 +3,8 @@ package service;
 import daos.IDao;
 import entity.Odontologo;
 
+import java.sql.SQLException;
+
 public class OdontologoService {
     private IDao<Odontologo> odontologoDao;
 
@@ -10,7 +12,7 @@ public class OdontologoService {
         this.odontologoDao = odontologoDao;
     }
 
-    public Odontologo crear(Odontologo odontologo){
+    public Odontologo crear(Odontologo odontologo) throws SQLException {
         return this.odontologoDao.crear(odontologo);
     }
 }

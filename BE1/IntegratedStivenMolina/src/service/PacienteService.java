@@ -1,8 +1,9 @@
 package service;
 
 import daos.IDao;
-import entity.Odontologo;
 import entity.Paciente;
+
+import java.sql.SQLException;
 
 public class PacienteService {
 
@@ -12,7 +13,11 @@ public class PacienteService {
         this.pacienteDao = pacienteDao;
     }
 
-    public Paciente crear(Paciente paciente){
+    public Paciente crear(Paciente paciente) throws SQLException {
         return this.pacienteDao.crear(paciente);
+    }
+
+    public Paciente buscar(int id) throws SQLException {
+        return this.pacienteDao.buscar(id);
     }
 }

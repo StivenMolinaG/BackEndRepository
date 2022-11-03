@@ -3,18 +3,21 @@ package daos;
 import db.H2DB;
 import entity.Odontologo;
 import entity.Paciente;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+
 public class PacienteDaoH2 implements IDao<Paciente>{
+    private final static Logger LOGGER = LogManager.getLogger();
     private final Connection conn = H2DB.getConecction();
 
     @Override
-    public Paciente crear(Paciente paciente) {
+    public Paciente crear(Paciente paciente) throws SQLException {
         PreparedStatement preparedStatement;
         try{
             conn.setAutoCommit(false);
@@ -39,12 +42,25 @@ public class PacienteDaoH2 implements IDao<Paciente>{
     }
 
     @Override
-    public Paciente buscar(int id) {
+    public Paciente buscar(int id) throws SQLException {
+        PreparedStatement preparedStatement;
+        preparedStatement = conn.prepareStatement("SELECT * FROM paciente WHERE id = ?");
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            LOGGER.info("El paciente con id: " + id);
+            LOGGER.info("nombre: " + resultSet.getString(2) +
+                    "\n Apellido " + resultSet.getString(3)
+            + "\n Domicilio " + resultSet.getString(4) +
+                    "\n DNI " + resultSet.getString(5));
+        }
+        preparedStatement.close();
+        conn.close();
         return null;
     }
 
     @Override
-    public List<Paciente> buscarTodos() {
+    public List<Paciente> buscarTodos(){
         return null;
     }
 
