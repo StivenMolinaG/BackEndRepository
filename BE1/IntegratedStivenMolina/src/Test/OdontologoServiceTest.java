@@ -1,7 +1,7 @@
 package Test;
 
 import daos.OdontologoDaoH2;
-import entidades.Odontologo;
+import entity.Odontologo;
 import service.OdontologoService;
 import static org.junit.Assert.*;
 

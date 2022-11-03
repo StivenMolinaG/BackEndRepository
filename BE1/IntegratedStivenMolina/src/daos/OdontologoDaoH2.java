@@ -1,7 +1,7 @@
 package daos;
 
 import db.H2DB;
-import entidades.Odontologo;
+import entity.Odontologo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

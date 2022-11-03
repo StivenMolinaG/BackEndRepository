@@ -1,7 +1,7 @@
 package service;
 
 import daos.IDao;
-import entidades.Odontologo;
+import entity.Odontologo;
 
 public class OdontologoService {
     private IDao<Odontologo> odontologoDao;

@@ -1,6 +1,6 @@
 import daos.OdontologoDaoH2;
 import db.H2DB;
-import entidades.Odontologo;
+import entity.Odontologo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import service.OdontologoService;
