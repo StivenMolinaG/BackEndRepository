@@ -10,7 +10,7 @@ public class OdontologoServiceTest {
 
     @org.junit.Test
     public void crear() {
-        Odontologo odontologo = new Odontologo(3,"Catalina", "Restrepo", "3764");
+        Odontologo odontologo = new Odontologo(1,"Stiven", "Molina", "1234");
         OdontologoService odontologoService = new OdontologoService();
         odontologoService.setOdontologoDao(new OdontologoDaoH2());
         Odontologo odontologoDB = odontologoService.crear(odontologo);
