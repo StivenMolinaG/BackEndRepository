@@ -6,6 +6,10 @@ import java.sql.SQLException;
 
 public class H2DB {
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS odontologo (id INT PRIMARY KEY, nombre VARCHAR(255), apellido VARCHAR(255), matricula VARCHAR(255))";
+    private static final String CREATE_TABLE_PACIENTE = "CREATE TABLE IF NOT EXISTS paciente (id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(255), apellido VARCHAR(255), " +
+            "domicilio VARCHAR(255)," +
+            "DNI varchar(255)," +
+            "fechaAlta Date)";
     private static final String JDBC_DRIVER = "org.h2.Driver";
     private static final String DB_URL = "jdbc:h2:~/integrated";
     private static final String USER = "sa";
@@ -28,6 +32,7 @@ public class H2DB {
         try{
             Connection connection = getConecction();
             connection.createStatement().execute(CREATE_TABLE);
+            connection.createStatement().execute(CREATE_TABLE_PACIENTE);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
