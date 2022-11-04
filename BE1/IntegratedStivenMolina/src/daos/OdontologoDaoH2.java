@@ -2,6 +2,8 @@ package daos;
 
 import db.H2DB;
 import entity.Odontologo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +11,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class OdontologoDaoH2 implements IDao<Odontologo>{
+
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private final Connection conn = H2DB.getConecction();
     @Override
@@ -30,7 +34,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo>{
                 conn.rollback();
                 conn.close();
             } catch (SQLException ex) {
-                throw new RuntimeException(ex);
+                LOGGER.error("Error al ejecutar el insert con la excepción: "+ ex);
             }
             throw new RuntimeException(e);
         }
